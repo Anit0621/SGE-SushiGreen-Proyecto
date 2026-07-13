@@ -1,0 +1,38 @@
+<head>
+    <title>Registrar Orden</title>
+</head>
+<body>
+<h1>Registrar Orden de Pedido</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<form action="/ordenes/submit" method="POST">
+
+    <p>NIT del proveedor: <input type="text" name="nit_proveedor" required></p>
+    <p>Fecha del pedido: <input type="date" name="fecha_pedido" required></p>
+    <p>Lugar de entrega: <input type="text" name="lugar_entrega" required></p>
+
+    <h3>Insumos de la orden</h3>
+    <p>El estado inicia en "pendiente" y el numero de orden lo asigna
+        la base de datos.</p>
+
+    <table border="1">
+        <tr>
+            <th>ID Insumo</th>
+            <th>Cantidad (1 a 500)</th>
+            <th>Precio de compra</th>
+        </tr>
+        {% for i in range(3) %}
+        <tr>
+            <td><input type="text" name="id_ingrediente"></td>
+            <td><input type="number" name="cantidad" step="0.01"></td>
+            <td><input type="number" name="precio_compra" step="0.01"></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><input type="submit" value="Guardar orden"></p>
+</form>
+</body>
