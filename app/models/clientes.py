@@ -66,6 +66,22 @@ def eliminar_cliente(id_cliente):
     curr.close()
     conn.close()
 
+def actualizar_cliente(cedula_cliente,nombre,apellido,telefono,tipo_documento,habeas_data,ciudad,direccion_residencia,direccion_operativa,
+                       email,representante_legal,regimen_tributario):
+    conn = get_connection()
+
+    curr = conn.cursor()
+
+    curr.execute("UPDATE cliente SET nombre=%s,apellido=%s,telefono=%s,"
+                 "tipo_documento=%s,habeas_data=%s,ciudad=%s,direccion_residencia=%s,direccion_operativa=%s, "
+                 "email=%s,representante_legal=%s,regimen_tributario=%s WHERE cedula_cliente = %s",(nombre,apellido,telefono,tipo_documento,habeas_data,ciudad,direccion_residencia,direccion_operativa,
+                       email,representante_legal,regimen_tributario,cedula_cliente))
+
+    conn.commit()
+    curr.close()
+    conn.close()
+
+
 
 
 
