@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proveedores</title>
+</head>
+<body>
+
+<h1>Lista de proveedores</h1>
+
+<a href="{{ url_for('proveedor.proveedor_submit') }}">
+    <button>Registrar proveedor</button>
+</a>
+
+<a href="{{ url_for('proveedor.proveedor_delete') }}">
+    <button>Eliminar proveedor</button>
+</a>
+
+<br><br>
+
+<table border="1">
+    <tr>
+        <th>NIT</th>
+        <th>Nombre</th>
+    </tr>
+
+    {% for proveedor in proveedores %}
+    <tr>
+        <td>{{ proveedor[1] }}</td>
+        <td>{{ proveedor[0] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
