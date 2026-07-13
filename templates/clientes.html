@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clientes</title>
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    <form action = "/clientes/submit" method="GET">
+         <p><input type = "submit" value = "crear cliente"></p>
+    </form>
+
+    <form action = "/clientes/delete" method="GET">
+         <p><input type = "submit" value = "eliminar cliente"></p>
+    </form>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente[0] }}</td>
+                <td>{{ cliente[1] }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+
+
