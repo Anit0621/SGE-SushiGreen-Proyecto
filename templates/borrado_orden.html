@@ -1,0 +1,18 @@
+<head>
+    <title>Eliminar Orden</title>
+</head>
+<body>
+<h1>Eliminar Orden de Pedido</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<p>Solo se pueden eliminar las ordenes en estado "pendiente".
+    Una orden en transito, entregada o cancelada es un documento en firme.</p>
+
+<form action="/ordenes/delete" method="POST">
+    <p>ID de la orden: <input type="text" name="id_pedido_prov" required></p>
+    <p><input type="submit" value="Eliminar orden"></p>
+</form>
+</body>

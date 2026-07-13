@@ -1,0 +1,26 @@
+<head>
+    <title>Cambiar Estado</title>
+</head>
+<body>
+<h1>Cambiar Estado de una Orden</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<form action="/ordenes/cambiar_estado" method="POST">
+    <p>ID de la orden (ej: PED-PROV-015):
+        <input type="text" name="id_pedido_prov" required></p>
+
+    <p>Nuevo estado:
+        <select name="estado">
+            <option value="pendiente">pendiente</option>
+            <option value="en transito">en transito</option>
+            <option value="entregado">entregado</option>
+            <option value="cancelado">cancelado</option>
+        </select>
+    </p>
+
+    <p><input type="submit" value="Cambiar estado"></p>
+</form>
+</body>

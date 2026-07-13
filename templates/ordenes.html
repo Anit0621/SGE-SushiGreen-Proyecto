@@ -1,0 +1,49 @@
+<head>
+    <title>Ordenes de Pedido</title>
+</head>
+<body>
+<h1>Listado de Ordenes de Pedido</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<form action="/ordenes/submit" method="GET">
+    <p><input type="submit" value="crear orden"></p>
+</form>
+
+<form action="/ordenes/cambiar_estado" method="GET">
+    <p><input type="submit" value="cambiar estado"></p>
+</form>
+
+<form action="/ordenes/delete" method="GET">
+    <p><input type="submit" value="eliminar orden"></p>
+</form>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>N. Orden</th>
+        <th>ID</th>
+        <th>Proveedor</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Lugar de entrega</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for orden in ordenes %}
+    <tr>
+        <td>{{ orden[0] }}</td>
+        <td>{{ orden[1] }}</td>
+        <td>{{ orden[2] }}</td>
+        <td>{{ orden[3] }}</td>
+        <td>{{ orden[4] }}</td>
+        <td>{{ orden[5] }}</td>
+        <td>{{ orden[6] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
