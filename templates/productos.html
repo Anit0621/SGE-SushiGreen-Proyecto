@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Productos</title>
+</head>
+<body>
+    <h1>Listado de productos</h1>
+    <form action = "/productos/submit" method="GET">
+         <p><input type = "submit" value = "crear producto"></p>
+    </form>
+
+    <form action = "/productos/desactivate" method="GET">
+         <p><input type = "submit" value = "desactivar producto"></p>
+    </form>
+
+    <form action = "/productos/activate" method="GET">
+         <p><input type = "submit" value = "activar producto"></p>
+    </form>
+
+    <form action = "/productos/categoria" method="GET">
+         <p><input type = "submit" value = "mostrar por categoria"></p>
+    </form>
+
+    <form action = "/productos/price" method="GET">
+         <p><input type = "submit" value = "ajustar precio"></p>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto[0] }}</td>
+                <td>{{ producto[1] }}</td>
+                <td>{{ producto[2] }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+
+
