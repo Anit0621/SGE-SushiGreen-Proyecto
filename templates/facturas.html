@@ -1,0 +1,49 @@
+<head>
+    <title>Facturas</title>
+</head>
+<body>
+<h1>Listado de Facturas</h1>
+
+<form action="/facturas/submit" method="GET">
+    <p><input type="submit" value="emitir factura"></p>
+</form>
+
+<form action="/facturas/update" method="GET">
+    <p><input type="submit" value="actualizar factura"></p>
+</form>
+
+<form action="/facturas/delete" method="GET">
+    <p><input type="submit" value="eliminar factura"></p>
+</form>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>N. Factura</th>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+        <th>Subtotal</th>
+        <th>Impuestos</th>
+        <th>Propina</th>
+        <th>Total</th>
+        <th>Detalle</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for f in facturas %}
+    <tr>
+        <td>{{ f[0] }}</td>
+        <td>{{ f[1] }}</td>
+        <td>{{ f[2] }}</td>
+        <td>{{ f[3] }}</td>
+        <td>{{ f[4] }}</td>
+        <td>{{ f[5] }}</td>
+        <td>{{ f[6] }}</td>
+        <td>{{ f[7] }}</td>
+        <td><a href="/facturas/detalle/{{ f[1] }}">ver</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>

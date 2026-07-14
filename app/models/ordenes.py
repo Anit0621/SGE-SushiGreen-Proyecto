@@ -115,7 +115,7 @@ def crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
         return id_pedido
 
     except Exception:
-        conn.rollback()   # si algo falla, no queda nada a medias
+        conn.rollback()
         raise
     finally:
         curr.close()
