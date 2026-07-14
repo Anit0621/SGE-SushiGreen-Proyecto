@@ -107,9 +107,31 @@ de prueba ya cargados.
 
 ### 3. Ejecutar la aplicación web
 
-_(Pendiente: se documentará al finalizar el desarrollo de la app Flask)_
-
----
+Para realizar la ejecución de la app hay que realizar los siguientes pasos: 
+1. Crear una carpeta nueva en algún lugar del equipo, e inicializar un repositorio git en ella. Esto se realiza abriendo el Git bash en esa ubicación e ingresando 
+```bash
+git init
+```
+2. luego, hay que vincular el repositorio con este repositorio remoto; para esta acción hay que usar el siguiente comando:
+```bash
+git remote add origin https://github.com/Anit0621/SGE-SushiGreen-Proyecto.git
+```
+3. Posteriormente hay que traer todo lo contenido en el repositorio; para esto se usa el comando:
+```bash
+git pull origin
+```
+4. Finalmente, hay que especificar la rama a utilizar; para correr la app en modo despliegue se utiliza la rama main:
+```bash
+git checkout main
+```
+RECOMENDACIONES: 
+En caso de errores con el compilador de Python, se recomienda realizar la configuración para establecer un nuevo interpretador; esta opción en PyCharm se encuentra en la parte inferior derecha del programa;
+Hay que añadir un nuevo interpretador local y crear uno nuevo utilizando el archivo ubicado en la carpeta raíz de Python en el equipo; esto crea un nuevo entorno virtual. Posterior a esto hay que hacer: 
+```bash
+pip install -r requirements.txt
+```
+Para realizar la instalación de las dependencias/librerias adicionales utilizadas para este proyecto y contempladas en requirements.txt.
+Para correr la app web hay que correr el archivo `run.py`
 
 ## 🤖 Uso de Inteligencia Artificial
 
