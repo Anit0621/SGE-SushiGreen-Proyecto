@@ -1,0 +1,43 @@
+<head>
+    <title>Detalle de Factura</title>
+</head>
+<body>
+<h1>Detalle de la Factura {{ id_factura }}</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<p>Cada producto lleva la tarifa que le corresponde por ley:
+    Impoconsumo 8% para comida (Art. 512-1 ET) e IVA General 19%
+    para bebidas alcoholicas.</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Producto</th>
+        <th>Tipo de impuesto</th>
+        <th>Tarifa</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+        <th>Impuesto</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for l in lineas %}
+    <tr>
+        <td>{{ l[0] }}</td>
+        <td>{{ l[1] }}</td>
+        <td>{{ l[2] }}%</td>
+        <td>{{ l[3] }}</td>
+        <td>{{ l[4] }}</td>
+        <td>{{ l[5] }}</td>
+        <td>{{ l[6] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p><a href="/facturas/todas">Volver</a></p>
+</body>l>

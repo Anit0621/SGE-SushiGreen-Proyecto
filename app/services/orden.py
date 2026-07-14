@@ -39,7 +39,7 @@ def crear_orden_nueva(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
             "Una orden de pedido debe tener al menos un insumo."
         )
 
-    # El enunciado exige cantidad minima 1. La BD topa en 500 porque son
+    # El enunciado exige cantidad minima 1 y la BD topa en 500 porque son
     # insumos perecederos. Se valida aqui para dar un mensaje claro en vez
     # de dejar que reviente el CHECK de PostgreSQL con un error 500.
     for id_ingrediente, cantidad, precio in lineas:

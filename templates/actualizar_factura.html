@@ -1,0 +1,20 @@
+<head>
+    <title>Actualizar Factura</title>
+</head>
+<body>
+<h1>Actualizar Factura</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<p>Una factura emitida es un documento en firme ante la DIAN.
+    Para corregir un error se debe emitir una nota credito, no
+    editar la factura original.</p>
+
+<form action="/facturas/update" method="POST">
+    <p>ID de la factura (ej: FAC-00500):
+        <input type="text" name="id_factura" required></p>
+    <p><input type="submit" value="Actualizar factura"></p>
+</form>
+</body>

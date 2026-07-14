@@ -1,0 +1,19 @@
+<head>
+    <title>Eliminar Factura</title>
+</head>
+<body>
+<h1>Eliminar Factura</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<p>La normativa de Facturacion Electronica exige que el rastro de la
+    transaccion sea inalterable. Borrar una factura rompe la
+    consecutividad legal de la numeracion.</p>
+
+<form action="/facturas/delete" method="POST">
+    <p>ID de la factura: <input type="text" name="id_factura" required></p>
+    <p><input type="submit" value="Eliminar factura"></p>
+</form>
+</body>

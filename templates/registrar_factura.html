@@ -1,0 +1,47 @@
+<head>
+    <title>Emitir Factura</title>
+</head>
+<body>
+<h1>Emitir Factura</h1>
+
+{% if error %}
+<p style="color: red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<form action="/facturas/submit" method="POST">
+
+    <p>Cedula del cliente: <input type="text" name="cedula_cliente" required></p>
+    <p>Cedula del empleado: <input type="text" name="cedula_empleado" required></p>
+
+    <p>Tipo de pedido:
+        <select name="tipo_pedido">
+            <option value="Mesa">Mesa</option>
+            <option value="Domicilio">Domicilio</option>
+            <option value="Llevar">Llevar</option>
+        </select>
+    </p>
+
+    <p>Fecha: <input type="date" name="fecha" required></p>
+    <p>Hora: <input type="time" name="hora" required></p>
+    <p>Propina: <input type="number" name="propina" step="0.01" value="0" required></p>
+
+    <h3>Productos vendidos</h3>
+    <p>Solo se digita el producto y la cantidad. El precio y el impuesto
+        los toma el sistema de la base de datos.</p>
+
+    <table border="1">
+        <tr>
+            <th>ID Producto</th>
+            <th>Cantidad</th>
+        </tr>
+        {% for i in range(3) %}
+        <tr>
+            <td><input type="text" name="id_producto"></td>
+            <td><input type="number" name="cantidad" min="1"></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><input type="submit" value="Emitir factura"></p>
+</form>
+</body>
