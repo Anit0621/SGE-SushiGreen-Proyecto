@@ -33,7 +33,7 @@ def detalle_factura(id_factura):
 
 
 def emitir_factura(cedula_cliente, cedula_empleado, tipo_pedido,
-                   fecha, hora, propina, lineas):
+                   fecha, hora, propina, lineas, id_sede):
 
     if not lineas:
         raise ReglaNegocioError(
@@ -60,7 +60,7 @@ def emitir_factura(cedula_cliente, cedula_empleado, tipo_pedido,
         cedula_cliente, cedula_empleado, tipo_pedido,
         fecha, hora, propina,
         RESOLUCION_DIAN, NIT_EMPRESA,
-        lineas
+        lineas, id_sede
     )
 
 

@@ -33,7 +33,8 @@ def ordenes_por_estado(estado):
 
 
 
-def crear_orden_nueva(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
+def crear_orden_nueva(nit_proveedor, fecha_pedido, lugar_entrega, lineas,
+                      id_sede):
     if not lineas:
         raise ReglaNegocioError(
             "Una orden de pedido debe tener al menos un insumo."
@@ -54,7 +55,8 @@ def crear_orden_nueva(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
                 f"debe ser mayor que cero."
             )
 
-    return crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas)
+    return crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas,
+                       id_sede)
 
 
 def cambiar_estado_orden(id_pedido_prov, nuevo_estado):

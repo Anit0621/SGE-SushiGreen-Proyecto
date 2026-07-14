@@ -37,6 +37,7 @@ def orden_submit():
         ids = request.form.getlist("id_ingrediente")
         cantidades = request.form.getlist("cantidad")
         precios = request.form.getlist("precio_compra")
+        id_sede = request.form["id_sede"]
 
         lineas = []
         for id_ing, cant, precio in zip(ids, cantidades, precios):
@@ -44,7 +45,7 @@ def orden_submit():
                 lineas.append((id_ing, cant, precio))
 
         try:
-            crear_orden_nueva(nit, fecha, lugar, lineas)
+            crear_orden_nueva(nit, fecha, lugar, lineas, id_sede)
             return redirect(url_for("orden.ordenes_todas"))
         except ReglaNegocioError as e:
             return render_template("registrar_orden.html", error=str(e))

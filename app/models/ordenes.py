@@ -60,7 +60,7 @@ def obtener_estado(id_pedido_prov):
 
 
 
-def crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
+def crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas, id_sede):
     """
     lineas: lista de tuplas (id_ingrediente, cantidad, precio_compra).
 
@@ -110,6 +110,10 @@ def crear_orden(nit_proveedor, fecha_pedido, lugar_entrega, lineas):
                           cantidad_solicitada, precio_compra)
                          VALUES (%s, %s, %s, %s, %s)
                          """, (id_detalle, id_pedido, id_ingrediente, cantidad, precio))
+
+            curr.execute("""
+                SELECT sumar_pedido_inventario(%s::VARCHAR, %s::VARCHAR, %s::VARCHAR)
+            """, (id_pedido, id_ingrediente, id_sede))
 
         conn.commit()
         return id_pedido

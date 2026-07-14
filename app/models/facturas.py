@@ -85,7 +85,7 @@ def existe_factura(id_factura):
 
 def crear_factura(cedula_cliente, cedula_empleado, tipo_pedido,
                   fecha, hora, propina, resolucion_dian, nit_empresa,
-                  lineas):
+                  lineas, id_sede):
 
     conn = get_connection()
     curr = conn.cursor()
@@ -175,6 +175,10 @@ def crear_factura(cedula_cliente, cedula_empleado, tipo_pedido,
                          VALUES (%s, %s, %s, %s, %s, %s)
                          """, (id_detalle, id_pedido, id_producto,
                                cantidad, precio, subtotal_linea))
+
+        curr.execute("""
+                             SELECT gestion_pedidos(%s, %s)
+                             """,(id_pedido,id_pedido))
 
         conn.commit()
         return id_factura

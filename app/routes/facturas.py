@@ -50,6 +50,7 @@ def factura_submit():
 
         ids = request.form.getlist("id_producto")
         cantidades = request.form.getlist("cantidad")
+        id_sede = request.form.getlist("id_sede")
 
         lineas = []
         for id_prod, cant in zip(ids, cantidades):
@@ -58,7 +59,7 @@ def factura_submit():
 
         try:
             emitir_factura(cedula_cliente, cedula_empleado, tipo_pedido,
-                           fecha, hora, propina, lineas)
+                           fecha, hora, propina, lineas, id_sede)
             return redirect(url_for("factura.facturas_todas"))
         except ReglaNegocioError as e:
             return render_template("registrar_factura.html", error=str(e))
